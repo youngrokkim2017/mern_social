@@ -9,6 +9,8 @@ import morgan from 'morgan'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
+import { register } from './controllers/auth.js'
+
 // configurations
 // middleware
 const __filename = fileURLToPath(import.meta.url)
@@ -44,3 +46,6 @@ mongoose.connect(process.env.MONGO_URL, {
 }).then(() => {
     app.listen(PORT, () => console.log(`Server Port: ${PORT}`))
 }).catch((error) => console.log(`${error} did not connect`))
+
+// ROUTES
+app.post("/auth/register", upload.single("picture"), register)
