@@ -10,6 +10,7 @@ import path from 'path'
 import { fileURLToPath } from 'url'
 
 import { register } from './controllers/auth.js'
+import authRoutes from './routes/auth.js'
 
 // configurations
 // middleware
@@ -47,5 +48,8 @@ mongoose.connect(process.env.MONGO_URL, {
     app.listen(PORT, () => console.log(`Server Port: ${PORT}`))
 }).catch((error) => console.log(`${error} did not connect`))
 
-// ROUTES
+// ROUTES FOR UPLOAD
 app.post("/auth/register", upload.single("picture"), register)
+
+// ROUTES
+app.use("/auth", authRoutes)
