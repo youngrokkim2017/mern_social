@@ -42,7 +42,7 @@ const upload = multer({ storage })
 // mongodb
 const PORT = process.env.PORT || 6001
 mongoose.connect(process.env.MONGO_URL, {
-    useNewUrlParse: true,
+    useNewUrlParser: true,
     useUnifiedTopology: true,
 }).then(() => {
     app.listen(PORT, () => console.log(`Server Port: ${PORT}`))
