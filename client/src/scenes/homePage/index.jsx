@@ -37,6 +37,7 @@ const HomePage = () => {
           <Box flexBasis="26%">
             {/* widgets */}
             <AdvertWidget />
+            <Box m="2rem 0" />
           </Box>
         )}
     </Box>
